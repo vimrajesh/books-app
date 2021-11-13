@@ -1,0 +1,9 @@
+<h3>Create a Book</h3>
+<%= form_with model: @book do |form| %>
+  <%= form.number_field :B_id, placeholder: "B_id" %>
+  <%= form.text_field :B_title, placeholder: "B_title" %>
+  <%= form.text_field :Author, placeholder: "Author" %>
+  <%= form.text_field :Publisher, placeholder: "Publisher" %>
+  <%= form.number_field :Year, placeholder: "Year" %>
+  <%= form.submit %>
+<% end %>
