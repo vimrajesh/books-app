@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_134158) do
     t.integer "Year", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["B_id"], name: "index_books_on_B_id", unique: true
   end
 
 end
