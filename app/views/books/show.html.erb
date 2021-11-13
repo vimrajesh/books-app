@@ -1,3 +1,6 @@
 <%# <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p> %>
 <%# Print Book %>
+<h1><%= @book.B_title %></h1>
+<h4>"<%= @book.Author %>"</h4>
+<%= link_to 'Remove', @book, method: :delete, data: { confirm: 'Are you sure?' } %>
