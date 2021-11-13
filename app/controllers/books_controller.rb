@@ -54,13 +54,15 @@ class BooksController < ApplicationController
 
   def addBook
     @book = Book.new(book_params)
-    
-    puts @book 
-
-    if @book.save 
-        render json: {status: 'SUCCESS' , book: @book} , status: :ok
-    else
-        render json: {status: 'FAILED' , error:@book.errors} , status: :bad_request
+    begin
+      puts @book 
+      if @book.save 
+          render json: {status: 'SUCCESS' , book: @book} , status: :ok
+      else
+          render json: {status: 'FAILED' , error:@book.errors} , status: :bad_request
+      end
+    rescue ActiveRecord::RecordNotUnique => e
+      render json: { error: 'Book with that Id already exists.' } , status: :bad_request
     end
   end
 
