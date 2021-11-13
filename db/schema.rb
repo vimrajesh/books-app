@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_11_13_134158) do
 
   create_table "books", force: :cascade do |t|
-    t.integer "B_id"
-    t.text "B_title"
-    t.text "Author"
-    t.text "Publisher"
-    t.integer "Year"
+    t.integer "B_id", null: false
+    t.text "B_title", null: false
+    t.text "Author", null: false
+    t.text "Publisher", null: false
+    t.integer "Year", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
