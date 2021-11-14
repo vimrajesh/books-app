@@ -1,14 +1,16 @@
 # Ruby On Rails Project
+
 <bold> Submitted by Group 16 </bold>
+
 ## Question
 
 Develop a simple RoR MVC REST API to perform CRUD functions.
 
 1. Fetch the data from the database and send the response in JSON.
 2. Post the request to the API to perform the database operations. The post request
-method must display the books newly added to the database collection.
+   method must display the books newly added to the database collection.
 3. Create a database to store the details of books.
-Book[B_id, B_title, Author, Publisher, Year]
+   Book[B_id, B_title, Author, Publisher, Year]
 
 [Code Link](https://github.com/vimrajesh/books-app)
 
@@ -16,47 +18,72 @@ Book[B_id, B_title, Author, Publisher, Year]
 
 1. Configure Ruby on Rails on your machine. [Check here](https://rubyonrails.org/)
 2. Clone this repository and open the directory.
+
 ```sh
 git clone https://github.com/vimrajesh/books-app.git
 cd books-app
 ```
-3. Install the gems. 
+
+3. Install the gems.
+
 ```sh
 bundler install
 ```
+
 4. Run the server.
-rails server
+   rails server
 5. To check the server status, run the following command:
+
 ```sh
 curl http://localhost:3000
 ```
+
+or visit http://localhost:3000 on your browser.
+
+![Server Started](screenshots/server_started.png)
+
+<center><i>Figure 1: Server Started Successfully</i></center><br/>
+
 6. You can now use both the web interface as well the API to perform CRUD operations.
+
 ```sh
 # Web Interface
 http://localhost:3000/books
 # To access API use the following URL:
 http://localhost:3000/api/books
 ```
+
 7. To get all routes in the RoR application, run the following command in your shell:
+
 ```sh
 rails routes
 ```
+
 Or visit the following URL:
+
 ```sh
 http://localhost:3000/rails/info/routes
 ```
+
 8. Now, by looking at the routes provided, you can do the respective API calls and web interface operations.
 
 ## Model Definition
-- You can create your own model using this syntax.
+
+- You can create your own model using this syntax. We have used MVC Architecture to create the model.
+
 ```
 rails g model Book B_id: integer B_title:string Author:string Publisher:string Year:integer
 ```
-The following would be created upon execution of the above command.
-   - app/models/books.rb
-   - db/migrate/[date_time]_create_books.rb
 
-- The create_books ruby file is used to create the database. This is generated on the above execution. It was then modified to satisfy various constraints. 
+The following would be created upon execution of the above command.
+
+1.  app/models/books.rb
+2.  db/migrate/[date_time]\_create_books.rb
+
+The model on its own generates a unique column named 'id' which is an autoincrement not null field, which can be used to uniquely identify a particular record in the table. This is the primary key. The other fields are the attributes of the model. B_id is a different attribute from the id element.
+
+- The create_books ruby file is used to create the database. This is generated on the above execution. It was then modified to satisfy various constraints.
+
 ```ruby
 class CreateBooks < ActiveRecord::Migration[6.1]
   def change
@@ -74,6 +101,7 @@ end
 ```
 
 - Once this was done, we ran the following command to migrate the changes to the database:
+
 ```sh
 # /db/migrate/20211113134158_create_books.rb
 # To migrate the changes to the database
@@ -81,6 +109,7 @@ rails db:migrate
 ```
 
 The schema generated for the model is as follows:
+
 ```ruby
 # /db/schema.rb
 ActiveRecord::Schema.define(version: 2021_11_13_134158) do
@@ -100,6 +129,7 @@ end
 ```
 
 - Once the schema is set, you can execute to insert few of the the records to the database using the following command:
+
 ```sh
 # /db/seeds.rb to view the records getting inserted
 # To insert the records to the database
@@ -109,7 +139,8 @@ rails db:seed
 ```
 
 - The controller file was created in the app/controllers directory named 'books_controller.rb'.
-The contents of the controller file are as follows:
+  The contents of the controller file are as follows:
+
 ```ruby
 require 'json'
 
@@ -142,7 +173,7 @@ class BooksController < ApplicationController
       render json: { error: 'Book not found' } , status: :not_found
     end
   end
-  
+
   def displayRaw
     begin
       @book = Book.find(params[:id])
@@ -168,8 +199,8 @@ class BooksController < ApplicationController
   def addBook
     @book = Book.new(book_params)
     begin
-      puts @book 
-      if @book.save 
+      puts @book
+      if @book.save
           render json: {status: 'SUCCESS' , book: @book} , status: :ok
       else
           render json: {status: 'FAILED' , error:@book.errors} , status: :bad_request
@@ -216,7 +247,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
 
-    redirect_to books_path  
+    redirect_to books_path
   end
 
   private
@@ -228,32 +259,101 @@ end
 ```
 
 - TO get the server started, run the following command:
+
 ```sh
 rails server
 ```
 
-- Now that the server is up, you are all set to start using the API. 
+- Now that the server is up, you are all set to start using the API.
 
 ## API Use
-We have used POSTMAN to demonstrate use of our API. Functionalities provided by the API:
+
+We have used <b>Curl</b> and <b>Postman</b> to demonstrate use of our API. Functionalities provided by the API:
+
 ### GET ALL BOOKS
-To get all the books from the database.
+
+- To get all the books from the database using curl
+
 ```sh
 curl http://localhost:3000/api/books
 ```
-- GET: To get the details of a book. Send a get request to the following URL:
+
+![Curl GET All](screenshots/curl_get_all.png)
+
+<center><i>Figure 2: GET All Books using Curl Command</i></center><br/>
+
+- To get all the books using Postman
+![Postman GET All](screenshots/postman_get_all.png)
+<center><i>Figure 3: GET All Books using Postman</i></center><br/>
+
+### GET A BOOK
+
+- To get one single book from the database using curl
+
 ```sh
-curl http://localhost:3000/api/books/:id
+# Sample Syntax curl http://localhost:3000/api/books/<id>
+curl http://localhost:3000/api/books/1
 ```
-- POST: To add a new book to the database.
+
+![Curl GET one](screenshots/curl_get_one.png)
+
+<center><i>Figure 4: GET one single Book using Curl Command</i></center><br/>
+
+- To get one single book using Postman
+![Postman GET One](screenshots/postman_get_one.png)
+<center><i>Figure 5: GET one single Book using Postman</i></center><br/>
+
+### POST A BOOK
+
+- To add a new book to the database using curl.
+
 ```sh
-curl -X POST -H "Content-Type: application/json" -d '{"B_id": "3", "B_title": "The C Programming Language", "Author": "Dennis Ritchie", "Publisher": "Prentice Hall", "Year": "1988"}' http://localhost:3000/api/books
+# Sample curl syntax
+curl -X POST -H "Content-Type: application/json" -d '{"B_id": "3", "B_title": "The C Programming Language", "Author": "Dennis Ritchie", "Publisher": "Prentice Hall", "Year": "1988"}' http://localhost:3000/api/add_book
 ```
-- PUT: To update the details of a book.
+
+![Curl POST](screenshots/curl_post.png)
+
+<center><i>Figure 6: POST a new Book using Curl Command</i></center><br/>
+
+- To add a new book to the database using Postman
+![Postman POST](screenshots/postman_post.png)
+<center><i>Figure 7: POST a new Book using Postman</i></center><br/>
+
+- Handles unique constraint. (B_id is made unique). Demonstrated using Postman.
+![Postman Unique](screenshots/postman_unique.png)
+<center><i>Figure 8: Attempt to POST a duplicate B_id book object using Postman</i></center><br/>
+
+### UPDATE A BOOK
+
+- To update paraameters of a book in the database using curl.
+
 ```sh
-curl -X PUT -H "Content-Type: application/json" -d '{"B_id": "3", "B_title": "The C Programming Language", "Author": "Dennis Ritchie", "Publisher": "Prentice Hall", "Year": "1988"}' http://localhost:3000/api/books
+# Sample url syntax http://localhost:3000/api/update_book/<id>
+curl -X PUT -H "Content-Type: application/json" -d '{"Publisher": "Bloomsbury"}' http://localhost:3000/api/update_book/4
 ```
-- DELETE: To delete a book from the database.
+
+![Curl UPDATE](screenshots/curl_update.png)
+
+<center><i>Figure 9: Update parameter of a Book using Curl Command</i></center><br/>
+
+- To update paraameters of a book in the database using Postman
+![Postman UPDATE](screenshots/postman_update.png)
+<center><i>Figure 10: Update parameter of a Book using Postman</i></center><br/>
+
+### DELETE A BOOK
+
+- To delete a book from the database using curl.
+
 ```sh
-curl -X DELETE -H "Content-Type: application/json" -d '{"B_id": "3"}' http://localhost:3000/api/books
+# Sample url http://localhost:3000/api/books/<id>
+curl -X DELETE http://localhost:3000/api/books/4
 ```
+
+![Curl DELETE](screenshots/curl_delete.png)
+
+<center><i>Figure 11: Delete a Book using Curl Command</i></center><br/>
+
+- To delete a book from the database using Postman
+![Postman DELETE](screenshots/postman_delete.png)
+<center><i>Figure 12: Delete a Book using Postman</i></center><br/>
