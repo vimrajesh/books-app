@@ -42,7 +42,10 @@ or visit http://localhost:3000 on your browser.
 
 ![Server Started](screenshots/server_started.png)
 
-<center><i>Figure 1: Server Started Successfully</i></center><br/>
+<p align="center">
+    <i>Figure 1: Server Started Successfully</i>
+</p>
+<br/>
 
 6. You can now use both the web interface as well the API to perform CRUD operations.
 
@@ -280,11 +283,17 @@ curl http://localhost:3000/api/books
 
 ![Curl GET All](screenshots/curl_get_all.png)
 
-<center><i>Figure 2: GET All Books using Curl Command</i></center><br/>
+<p align="center">
+    <i>Figure 2: GET All Books using Curl Command</i>
+</p>
+<br/>
 
 - To get all the books using Postman
 ![Postman GET All](screenshots/postman_get_all.png)
-<center><i>Figure 3: GET All Books using Postman</i></center><br/>
+<p align="center">
+    <i>Figure 3: GET All Books using Postman</i>
+</p>
+<br/>
 
 ### GET A BOOK
 
@@ -297,11 +306,17 @@ curl http://localhost:3000/api/books/1
 
 ![Curl GET one](screenshots/curl_get_one.png)
 
-<center><i>Figure 4: GET one single Book using Curl Command</i></center><br/>
+<p align="center">
+    <i>Figure 4: GET one single Book using Curl Command</i>
+</p>
+<br/>
 
 - To get one single book using Postman
 ![Postman GET One](screenshots/postman_get_one.png)
-<center><i>Figure 5: GET one single Book using Postman</i></center><br/>
+<p align="center">
+    <i>Figure 5: GET one single Book using Postman</i>
+</p>
+<br/>
 
 ### POST A BOOK
 
@@ -314,15 +329,24 @@ curl -X POST -H "Content-Type: application/json" -d '{"B_id": "3", "B_title": "T
 
 ![Curl POST](screenshots/curl_post.png)
 
-<center><i>Figure 6: POST a new Book using Curl Command</i></center><br/>
+<p align="center">
+    <i>Figure 6: POST a new Book using Curl Command</i>
+</p>
+<br/>
 
 - To add a new book to the database using Postman
 ![Postman POST](screenshots/postman_post.png)
-<center><i>Figure 7: POST a new Book using Postman</i></center><br/>
+<p align="center">
+    <i>Figure 7: POST a new Book using Postman</i>
+</p>
+<br/>
 
 - Handles unique constraint. (B_id is made unique). Demonstrated using Postman.
 ![Postman Unique](screenshots/postman_unique.png)
-<center><i>Figure 8: Attempt to POST a duplicate B_id book object using Postman</i></center><br/>
+<p align="center">
+    <i>Figure 8: Attempt to POST a duplicate B_id book object using Postman</i>
+</p>
+<br/>
 
 ### UPDATE A BOOK
 
@@ -335,11 +359,17 @@ curl -X PUT -H "Content-Type: application/json" -d '{"Publisher": "Bloomsbury"}'
 
 ![Curl UPDATE](screenshots/curl_update.png)
 
-<center><i>Figure 9: Update parameter of a Book using Curl Command</i></center><br/>
+<p align="center">
+    <i>Figure 9: Update parameter of a Book using Curl Command</i>
+</p>
+<br/>
 
 - To update paraameters of a book in the database using Postman
 ![Postman UPDATE](screenshots/postman_update.png)
-<center><i>Figure 10: Update parameter of a Book using Postman</i></center><br/>
+<p align="center">
+    <i>Figure 10: Update parameter of a Book using Postman</i>
+</p>
+<br/>
 
 ### DELETE A BOOK
 
@@ -352,8 +382,14 @@ curl -X DELETE http://localhost:3000/api/books/4
 
 ![Curl DELETE](screenshots/curl_delete.png)
 
-<center><i>Figure 11: Delete a Book using Curl Command</i></center><br/>
+<p align="center">
+    <i>Figure 11: Delete a Book using Curl Command</i>
+</p>
+<br/>
 
 - To delete a book from the database using Postman
 ![Postman DELETE](screenshots/postman_delete.png)
-<center><i>Figure 12: Delete a Book using Postman</i></center><br/>
+<p align="center">
+    <i>Figure 12: Delete a Book using Postman</i>
+</p>
+<br/>
