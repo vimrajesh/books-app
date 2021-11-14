@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def home
     @books = Book.all
-    render json: @books.as_json(only: [:B_id, :B_title, :Author, :Publisher, :Year]), status: :ok
+    render json: @books.as_json(only: [:id, :B_id, :B_title, :Author, :Publisher, :Year]), status: :ok
   end
 
   def homeRaw
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   def display
     begin
       @book = Book.find(params[:id])
-      render json: @book.as_json(only: [:B_id, :B_title, :Author, :Publisher, :Year]), status: :ok
+      render json: @book.as_json(only: [:id, :B_id, :B_title, :Author, :Publisher, :Year]), status: :ok
     rescue ActiveRecord::RecordNotFound => e
       render json: { error: 'Book not found' } , status: :not_found
     end
@@ -66,6 +66,31 @@ class BooksController < ApplicationController
     end
   end
 
+  def updateBook
+    begin
+      @book = Book.find(params[:id])
+      if @book.update(book_params)
+        render json: {status: 'SUCCESS' , book: @book} , status: :ok
+      else
+        render json: {status: 'FAILED' , error:@book.errors} , status: :bad_request
+      end
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { error: 'Book not found' } , status: :not_found
+    end
+  end
+
+  def deleteBook
+    begin
+      @book = Book.find(params[:id])
+      if @book.destroy
+        render json: {status: 'SUCCESS' , book: @book} , status: :ok
+      else
+        render json: {status: 'FAILED' , error:@book.errors} , status: :bad_request
+      end
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { error: 'Book not found' } , status: :not_found
+    end
+  end
 
   def update
     @book = Book.find(params[:id])
@@ -84,6 +109,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:B_id, :B_title, :Author, :Publisher, :Year)
+    params.require(:book).permit(:id, :B_id, :B_title, :Author, :Publisher, :Year)
   end
 end
