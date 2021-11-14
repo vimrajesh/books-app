@@ -289,7 +289,7 @@ curl http://localhost:3000/api/books
 <br/>
 
 - To get all the books using Postman
-![Postman GET All](screenshots/postman_get_all.png)
+<br/><br/>![Postman GET All](screenshots/postman_get_all.png)
 <p align="center">
     <i>Figure 3: GET All Books using Postman</i>
 </p>
@@ -312,7 +312,7 @@ curl http://localhost:3000/api/books/1
 <br/>
 
 - To get one single book using Postman
-![Postman GET One](screenshots/postman_get_one.png)
+<br/><br/>![Postman GET One](screenshots/postman_get_one.png)
 <p align="center">
     <i>Figure 5: GET one single Book using Postman</i>
 </p>
@@ -335,14 +335,14 @@ curl -X POST -H "Content-Type: application/json" -d '{"B_id": "3", "B_title": "T
 <br/>
 
 - To add a new book to the database using Postman
-![Postman POST](screenshots/postman_post.png)
+<br/><br/>![Postman POST](screenshots/postman_post.png)
 <p align="center">
     <i>Figure 7: POST a new Book using Postman</i>
 </p>
 <br/>
 
 - Handles unique constraint. (B_id is made unique). Demonstrated using Postman.
-![Postman Unique](screenshots/postman_unique.png)
+<br/><br/>![Postman Unique](screenshots/postman_unique.png)
 <p align="center">
     <i>Figure 8: Attempt to POST a duplicate B_id book object using Postman</i>
 </p>
@@ -365,7 +365,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{"Publisher": "Bloomsbury"}'
 <br/>
 
 - To update paraameters of a book in the database using Postman
-![Postman UPDATE](screenshots/postman_update.png)
+<br/><br/>![Postman UPDATE](screenshots/postman_update.png)
 <p align="center">
     <i>Figure 10: Update parameter of a Book using Postman</i>
 </p>
@@ -388,7 +388,7 @@ curl -X DELETE http://localhost:3000/api/books/4
 <br/>
 
 - To delete a book from the database using Postman
-![Postman DELETE](screenshots/postman_delete.png)
+<br/><br/>![Postman DELETE](screenshots/postman_delete.png)
 <p align="center">
     <i>Figure 12: Delete a Book using Postman</i>
 </p>
