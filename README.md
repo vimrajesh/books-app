@@ -1,7 +1,10 @@
 # Ruby On Rails Project
 
 <b> Submitted by Group 16 </b><br>
-<b> Repository Link: [Code Link](https://github.com/vimrajesh/books-app) </b><br>
+<b> Repository Link: </b>
+[https://github.com/vimrajesh/books-app](https://github.com/vimrajesh/books-app) 
+
+<br>
 <b> Members: </b>
 
 <ul>
