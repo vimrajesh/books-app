@@ -1,6 +1,20 @@
 # Ruby On Rails Project
 
-<bold> Submitted by Group 16 </bold>
+<b> Submitted by Group 16 </b><br>
+<b> Repository Link: [Code Link](https://github.com/vimrajesh/books-app) </b><br>
+<b> Members: </b>
+
+<ul>
+  <li>
+    Vimal Rajesh (B180336CS)
+  </li>
+  <li>
+    P Arjun (B180454CS)
+  </li>
+  <li>
+    Neelima Sajeev (B180455CS)
+  </li>
+</ul>
 
 ## Question
 
@@ -11,8 +25,6 @@ Develop a simple RoR MVC REST API to perform CRUD functions.
    method must display the books newly added to the database collection.
 3. Create a database to store the details of books.
    Book[B_id, B_title, Author, Publisher, Year]
-
-[Code Link](https://github.com/vimrajesh/books-app)
 
 ## Steps to get the code up and running:
 
