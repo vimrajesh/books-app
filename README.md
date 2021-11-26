@@ -2,7 +2,7 @@
 
 <b> Submitted by Group 16 </b><br>
 <b> Repository Link: </b>
-[https://github.com/vimrajesh/books-app](https://github.com/vimrajesh/books-app) 
+[https://github.com/vimrajesh/books-app](https://github.com/vimrajesh/books-app)
 
 <br>
 <b> Members: </b>
@@ -283,6 +283,19 @@ rails server
 ```
 
 - Now that the server is up, you are all set to start using the API.
+
+## API Endpoints
+
+APi endpoints are:
+
+- /api/books
+- /api/books/raw
+- /api/books/:id
+- /api/books/raw/:id
+- /api/add_book
+- /api/update_book/:id
+- /api/update_book/:id
+- /api/books/:id
 
 ## API Use
 
